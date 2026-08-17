@@ -1,5 +1,6 @@
 from Data import data
 import random
+import os
 
 def player_data(player_data):
     name = player_data["name"]
@@ -12,6 +13,9 @@ def compare(guess, followers_a, followers_b):
         return guess == "a"
     elif followers_b > followers_a:
         return guess == "b"
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def engine():
 
@@ -39,7 +43,7 @@ def engine():
 
         if_correct = compare(user_input, follower_a_count, follower_b_count)
 
-        print("\n" * 20)
+        clear_screen()
 
         if if_correct:
             score += 1
